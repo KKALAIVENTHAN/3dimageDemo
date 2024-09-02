@@ -1,0 +1,63 @@
+body {
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color:black;
+                }
+                
+                .carousel {
+                    position: relative;
+                    width: 80vw;
+                    height: 50vh;
+                    perspective: 1500px; /* Provides a sense of depth */
+                }
+                
+                .carousel-container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    transform-style: preserve-3d; /* Enables 3D transformations for children */
+                    transition: transform 1s; /* Smooth rotation transition */
+                }
+                
+                .carousel-item {
+                    flex: 0 0 auto;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    backface-visibility: hidden; /* Hides the back face of the items */
+                    transform: rotateY(calc(360deg / 4 * var(--i))) translateZ(400px);
+                    /* Positions each item in a circle */
+                }
+                
+                .carousel-item img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover; /* Ensures images cover the container */
+                    border: 2px solid white; /* Adds a border for better visual separation */
+                }
+                
+                .carousel-button {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background:transparent; /* Semi-transparent background */
+                    border: none;
+                    color: white;
+                    font-size: 2rem;
+                    padding: 10px;
+                    cursor: pointer;
+                    z-index: 10; /* Ensures buttons are above other elements */
+                }
+                
+                .carousel-button.prev {
+                    left: 10px;
+                }
+                
+                .carousel-button.next {
+                    right: 10px;
+                }
